@@ -1,0 +1,79 @@
+@import './utils/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.App {
+  height: 100%;
+
+  &--dark {
+    background-color: $dark_background;
+    color: $dark_font_color;
+
+    a {
+      color: $dark_font_color;
+    }
+  }
+
+  &--light {
+    background-color: $light_background;
+    color: $light_font_color;
+    a {
+      color: $light_font_color;
+    }
+  }
+
+  &__filter {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2rem;
+
+    input[type="text"] {
+      width: 250px;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 8px;
+      font-size: 13px;
+      outline-color: $dark_button_color;
+    }
+
+    .icon {
+      height: 35px;
+      margin-top: 8px;
+      margin-left: 5px;
+      margin-right: 16px;
+      padding: 3px;
+      font-size: 50px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: $dark_button_color;
+    }
+  }
+
+  .results-area {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    &__container {
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 95%;
+    }
+  }
+}
