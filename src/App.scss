@@ -7,13 +7,18 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+html,
+body,
+.App,
+.App>div {
+  height: 100%
+}
+
 a {
   text-decoration: none;
 }
 
 .App {
-  height: 100%;
-
   &--dark {
     background-color: $dark_background;
     color: $dark_font_color;
@@ -26,6 +31,7 @@ a {
   &--light {
     background-color: $light_background;
     color: $light_font_color;
+
     a {
       color: $light_font_color;
     }
@@ -35,45 +41,139 @@ a {
     height: auto;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 2rem;
 
-    input[type="text"] {
-      width: 250px;
-      padding: 8px 20px;
-      border: none;
-      border-radius: 5px;
-      margin-top: 8px;
-      font-size: 13px;
-      outline-color: $dark_button_color;
+    &-area {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap-reverse;
+      select {
+        width: 300px;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 8px;
+        font-size: 13px;
+        outline-color: $dark_button_color;
+      }
+      .icon {
+        height: 35px;
+        margin-top: 8px;
+        margin-left: 5px;
+        margin-right: 16px;
+        padding: 3px;
+        font-size: 50px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: $dark_font_color;
+        background-color: $dark_button_color;
+      }
     }
 
-    .icon {
-      height: 35px;
-      margin-top: 8px;
-      margin-left: 5px;
-      margin-right: 16px;
-      padding: 3px;
-      font-size: 50px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background-color: $dark_button_color;
+    &__search-area {
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      input[type="text"] {
+        width: 250px;
+        padding: 8px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 8px;
+        font-size: 13px;
+        outline-color: $dark_button_color;
+      }
+
+      .icon {
+        height: 35px;
+        margin-top: 8px;
+        margin-left: 5px;
+        margin-right: 16px;
+        padding: 3px;
+        font-size: 50px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: $dark_button_color;
+      }
     }
   }
 
   .results-area {
-    height: auto;
+    min-height: 1085px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     &__container {
       margin: 0 auto;
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       align-items: center;
       max-width: 95%;
+    }
+  }
+
+  .country {
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__container {
+      height: 1085px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .country__information__card {
+        height: 60%;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+          width: 100%;
+          max-height: 350px;
+          margin-bottom: 2rem;
+          ;
+        }
+
+        .country__information__list {
+          width: 100%;
+          list-style-type: none;
+          text-align: center;
+          font-size: 1.1rem;
+          background-color: $dark_card_background;
+
+          &-item {
+            padding: 2rem 0;
+            border-top: 1px solid #fff;
+
+            ul {
+              list-style: none;
+              text-align: center;
+
+              li {
+                margin-top: 1rem;
+              }
+            }
+
+            &:nth-child(1) {
+              border-top: none;
+            }
+          }
+        }
+      }
+
     }
   }
 }

@@ -1,38 +1,49 @@
-import React, { useState } from 'react'
-import {FaSearch} from 'react-icons/fa'
+import React from 'react'
+import { FaSearch } from 'react-icons/fa'
+import { MdSort } from 'react-icons/md'
 import Card from '../components/Card/Card'
 
 const Home = (props) => {
-    // State Area
-    const [filterQuery, setFilterQuery] = useState('')
-
-    // State functions
-    const handleChange = (e) => {
-        const { value } = e.target
-        setFilterQuery(value)
-    }
-    // State Area end
 
     const cards = props.data.map(card => {
         return <Card
-                    key={Math.random()}
-                    card={card}
-                    handleClick={props.handleClick}
-                />
+            key={Math.random()}
+            card={card}
+            handleClick={props.handleClick}
+        />
     })
 
     return (
         <>
-            <form action="" className="App__filter">
-                <input
-                    type="text"
-                    placeholder="Search countries by name....."
-                    name="filterQuery"
-                    value={filterQuery}
-                    onChange={handleChange}
-                    aria-label="Filter countries by capital city, currency and region"
-                />
-                <FaSearch className="icon" />
+            <form action="#" className="App__filter">
+                <div className="App__filter-area">
+                    <select
+                        value={props.order}
+                        name="order"
+                        onChange={props.handleSort}
+                    >
+                        <option value={0}>Please select an option</option>
+                        <option value={1}>Sort by ascending order (name)</option>
+                        <option value={2}>Sort by descending order (name)</option>
+                        <option value={3}>Sort by ascending order (population)</option>
+                        <option value={4} >Sort by descending order (population)</option>
+                    </select>
+                    <MdSort className="icon" onClick={()=>{props.sort(props.order)}} />
+                </div>
+                <div className="App__filter__search-area">
+                    <input
+                        type="text"
+                        placeholder="Search countries by name....."
+                        name="filterQuery"
+                        value={props.filterQuery}
+                        onChange={props.handleChange}
+                        aria-label="Filter countries by capital city, currency and region"
+                    />
+                    <FaSearch
+                        className="icon"
+                        onClick={() => { props.handleSearch(props.filterQuery) }}
+                    />
+                </div>
             </form>
             <section className="results-area">
                 <div className="results-area__container">
