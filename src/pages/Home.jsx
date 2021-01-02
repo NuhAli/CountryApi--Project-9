@@ -5,6 +5,7 @@ import Card from '../components/Card/Card'
 
 const Home = (props) => {
 
+    // Variable cards is used to dispaly every object within the props.data array as an individual country
     const cards = props.data.map(card => {
         return <Card
             key={Math.random()}
@@ -28,12 +29,15 @@ const Home = (props) => {
                         <option value={3}>Sort by ascending order (population)</option>
                         <option value={4} >Sort by descending order (population)</option>
                     </select>
-                    <MdSort className="icon" onClick={()=>{props.sort(props.order)}} />
+                    <MdSort
+                        className={`icon ${props.theme}`}
+                        onClick={()=>{props.sort(props.order)}}
+                    />
                 </div>
                 <div className="App__filter__search-area">
                     <input
                         type="text"
-                        placeholder="Search countries by name....."
+                        placeholder="Search for a specific country by name....."
                         name="filterQuery"
                         value={props.filterQuery}
                         onChange={props.handleChange}

@@ -1,21 +1,31 @@
 import React from 'react'
-import { FaGlobe, FaMoon, FaSun } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { FaGlobe, FaMoon, FaSun } from 'react-icons/fa'
 import './Header.scss'
+
 const Header = (props) => {
+
     return (
-        <header className="header">
+        <header className={`header ${props.theme}`}>
             <div className="header__container">
-                <Link to="/" onClick={props.restart}>
+                <Link
+                    to="/" 
+                    onClick={props.restart}
+                >
                     <h1 className="header__container__title">
+                        <span className="header__container__title-span">
                         React Countries
-                    <FaGlobe className="icon" />
+                        </span>
+                        <FaGlobe className={`icon ${props.theme}`} />
                     </h1>
                 </Link>
                 <div className="header__container__theme-switch">
                     <FaMoon />
                     <label className="switch">
-                        <input type="checkbox" onChange={props.changeTheme} />
+                        <input 
+                            type="checkbox"
+                            onChange={props.changeTheme}
+                        />
                         <span className="slider round"></span>
                     </label>
                     <FaSun />

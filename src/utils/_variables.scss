@@ -5,7 +5,21 @@ $dark_font_color: #ffff;
 $dark_button_color: #0071bc;
 
 // Light Theme
-$light_background: #ffffff;
+$light_background: #b0bec5;
 $light_card_background: #e4edf1;
 $light_font_color: #222222;
 $light_button_color: #0367aa;
+
+
+// Mixins
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flexCenterCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

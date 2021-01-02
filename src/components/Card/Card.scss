@@ -8,6 +8,10 @@
     border-radius: 10px;
     overflow: hidden;
     text-decoration: none;
+
+    @media screen and (max-width: 807px) {
+        min-width: 80%;
+    }
 }
 
 .cards-item-pic-wrap {

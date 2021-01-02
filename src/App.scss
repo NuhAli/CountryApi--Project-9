@@ -7,11 +7,11 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-html,
-body,
-.App,
-.App>div {
-  height: 100%
+html
+,body
+,#root
+,.App {
+  min-height: 100vh;
 }
 
 a {
@@ -19,6 +19,7 @@ a {
 }
 
 .App {
+  height: 100%;
   &--dark {
     background-color: $dark_background;
     color: $dark_font_color;
@@ -57,6 +58,9 @@ a {
         margin-top: 8px;
         font-size: 13px;
         outline-color: $dark_button_color;
+        @media screen and (max-width: 572px) {
+          width: 200px
+        }
       }
       .icon {
         height: 35px;
@@ -79,13 +83,16 @@ a {
       align-items: center;
 
       input[type="text"] {
-        width: 250px;
+        width: 300px;
         padding: 8px 20px;
         border: none;
         border-radius: 5px;
         margin-top: 8px;
         font-size: 13px;
         outline-color: $dark_button_color;
+        @media screen and (max-width: 572px) {
+          width: 200px
+        }
       }
 
       .icon {
@@ -99,52 +106,51 @@ a {
         border-radius: 5px;
         cursor: pointer;
         background-color: $dark_button_color;
+        color: $dark_font_color;
       }
+      
+    }
+    @media screen and (max-width: 807px) {
+      flex-direction: column-reverse;
+
+      &__search-area {
+        margin-bottom: 2rem;
+      }
+    }
+    @media screen and (max-width: 572px) {
+      padding: 1rem;
     }
   }
 
+  // Results Area
+
   .results-area {
-    min-height: 1085px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
 
     &__container {
       margin: 0 auto;
-      display: flex;
-      justify-content: center;
+      @include flexCenter;
       flex-wrap: wrap;
-      align-items: center;
       max-width: 95%;
     }
   }
 
   .country {
-    height: 100%;
     padding: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexCenter;
 
     &__container {
-      height: 1085px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flexCenterCol;
 
       .country__information__card {
         height: 60%;
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
+        width: 550px;
+        @include flexCenterCol;
+        
         img {
           width: 100%;
           max-height: 350px;
-          margin-bottom: 2rem;
-          ;
+          margin-bottom: 1rem;
         }
 
         .country__information__list {
@@ -152,11 +158,28 @@ a {
           list-style-type: none;
           text-align: center;
           font-size: 1.1rem;
-          background-color: $dark_card_background;
+          border: 2px solid;
+          &.dark {
+            background-color: $dark_card_background;
+            border-color: $dark_font_color;
+          }
+
+          &.light {
+            background-color: $light_card_background;
+            border-color: $light_font_color
+          }
 
           &-item {
             padding: 2rem 0;
             border-top: 1px solid #fff;
+
+            &.dark {
+              border-color: $dark_font_color
+            }
+  
+            &.light {
+              border-color: $light_font_color
+            }
 
             ul {
               list-style: none;
@@ -173,7 +196,25 @@ a {
           }
         }
       }
-
+    }
+    @media screen and (max-width: 572px){
+      padding:3rem 0 0 0 ;
+      .country__container {
+        width: 100%;
+        .country__information__card {
+          padding: 0.5rem;
+          width: 100%;
+          img {
+            width: 300px
+          }
+  
+          .country__information__list {
+            width: 100%;
+            margin: 1rem 0 0 0;
+            font-size: 0.8rem;
+          }
+        }
+      }
     }
   }
 }
